@@ -30,7 +30,16 @@ $highlight3 = $params->get( 'hightlight3' );
 $highlight4 = $params->get( 'hightlight4' );
 $column_num = $params->get( 'col_num' );
 ?>
-<?php $col1id = $params->get( 'Set1_id' );
+<?php 
+
+$row_class = $params->get( 'rowclass' );
+if ($row_class == ''){
+$row_class = 'subtable-col';
+}
+else{
+$row_class = $row_class;
+}
+$col1id = $params->get( 'Set1_id' );
 if ($col1id == ''){
 $col1id = 'col1';
 }
@@ -52,16 +61,16 @@ $col4id = 'col4';
 else {$col4id = $col4id;}?>
 <script src="http://code.jquery.com/jquery-latest.js"></script>
 <script>
-var j = jQuery.noConflict();
-j(function(){
-j("#<?php echo $col1id; ?> .subtable-cell:nth-child(2n)").addClass('bg');
-j("#<?php echo $col2id; ?> .subtable-cell:nth-child(2n)").addClass('bg');
-j("#<?php echo $col3id; ?> .subtable-cell:nth-child(2n)").addClass('bg');
-j("#<?php echo $col4id; ?> .subtable-cell:nth-child(2n)").addClass('bg');
+
+$(function(){
+$("#<?php echo $col1id; ?> .subtable-cell:nth-child(2n)").addClass('bg');
+$("#<?php echo $col2id; ?> .subtable-cell:nth-child(2n)").addClass('bg');
+$("#<?php echo $col3id; ?> .subtable-cell:nth-child(2n)").addClass('bg');
+$("#<?php echo $col4id; ?> .subtable-cell:nth-child(2n)").addClass('bg');
 });
 window.addEvent('domready', function() {
 	var tables = $$('.subtable<?php echo $params->get( 'classname' ) ?>'), current = {}, cls;
-	var cols = tables.getElements('.subtable-col');
+	var cols = tables.getElements('.<?php echo $row_class; ?>');
 	
 	tables.each(function(table, j) {
 		var columns = cols[j];
@@ -76,8 +85,8 @@ window.addEvent('domready', function() {
 		});
 		if ($chk(current[j])) {
 			table.addEvent('mouseleave', function() {
-				table.getElements('.subtable-col').removeClass(cls);
-				table.getElements('.subtable-col')[current[j]].addClass(cls);
+				table.getElements('.<?php echo $row_class; ?>').removeClass(cls);
+				table.getElements('.<?php echo $row_class; ?>')[current[j]].addClass(cls);
 			});
 		}
 	});
@@ -154,7 +163,7 @@ xmlhttp.send();
 </div>
 <?php }else{ echo '<div style="width:100%;height:25px"></div>';}?>
                 <div class="subtable<?php echo $params->get( 'classname' ) ?> col<?php echo $column_num; ?>"><div class="subtable-border">
-<div class="subtable-col ft-col-first <?php if($highlight1 == 1){ echo "highlight";}else {echo "";}?>" id="subtable-col">
+<div class="subtable-col <?php echo $row_class; ?> ft-col-first <?php if($highlight1 == 1){ echo "highlight";}else {echo "";}?>" id="subtable-col">
 	<div class="subtable-col-border">
 				<div class="subtable-head">
 			<div style="" class="head-text">
@@ -204,13 +213,13 @@ xmlhttp.send();
 			<?php echo $set1_col10;?>	</div>
             <?php } ?>
 								<div style="" class="subtable-cell bottom button4">
-			<a class="readon" href="<?php echo $params->get( 'set1_signup_link' ) ?>"><span>Sign Up Now</span></a> <span class="itemtext">Sign Up to get access now!</span>
+			<a class="readon" href="<?php echo $params->get( 'set1_signup_link' ) ?>"><span>Sign Up Now</span></a> <span class="itemtext">Sign Up to get access!</span>
 		</div>
 			</div>
             </div>
 </div>
 <?php if(($column_num==2) || ($column_num == 3) || ($column_num == 4)){?>
-<div class="subtable-col <?php if($highlight2 == 1){ echo "highlight";}else {echo "";}?> ft-col-even">
+<div class="subtable-col <?php echo $row_class; ?> <?php if($highlight2 == 1){ echo "highlight";}else {echo "";}?> ft-col-even">
 	<div class="subtable-col-border">
 				<div class="subtable-head">
 			<div style="" class="head-text">
@@ -260,14 +269,14 @@ xmlhttp.send();
 			<?php echo $set2_col10;?>	</div>
             <?php } ?>
 								<div style="" class="subtable-cell bottom button4">
-			<a class="readon" href="<?php echo $params->get( 'set2_signup_link' ) ?>"><span>Sign Up Now</span></a> <span class="itemtext">Sign Up to get access now!</span>
+			<a class="readon" href="<?php echo $params->get( 'set2_signup_link' ) ?>"><span>Sign Up Now</span></a> <span class="itemtext">Sign Up to get access!</span>
 		</div>
 			</div>
 </div>
 </div>
 <?php }?>
 <?php if(($column_num==3) || ($column_num == 4)){?>
-<div class="subtable-col <?php if($highlight3 == 1){ echo "highlight";}else {echo "";}?>">
+<div class="subtable-col <?php echo $row_class; ?> <?php if($highlight3 == 1){ echo "highlight";}else {echo "";}if($column_num == 3){echo "ft-col-last";}?>">
 	<div class="subtable-col-border">
 					<div class="subtable-head">
 			<div style="" class="head-text">
@@ -317,14 +326,14 @@ xmlhttp.send();
 			<?php echo $set3_col10;?>	</div>
             <?php } ?>
 								<div style="" class="subtable-cell bottom button4">
-			<a class="readon" href="<?php echo $params->get( 'set3_signup_link' ) ?>"><span>Sign Up Now</span></a> <span class="itemtext">Sign Up to get access now!</span>
+			<a class="readon" href="<?php echo $params->get( 'set3_signup_link' ) ?>"><span>Sign Up Now</span></a> <span class="itemtext">Sign Up to get access!</span>
 		</div>
 			</div>
 </div>
 </div>
 <?php } ?>
 <?php if($column_num == 4){ ?>
-<div class="subtable-col ft-col-even ft-col-last <?php if($highlight4 == 1){ echo "highlight";}else {echo "";}?>">
+<div class="subtable-col <?php echo $row_class; ?> ft-col-even ft-col-last <?php if($highlight4 == 1){ echo "highlight";}else {echo "";}?>">
 	<div class="subtable-col-border">
 						<div class="subtable-head">
 			<div style="" class="head-text">
@@ -374,7 +383,7 @@ xmlhttp.send();
 			<?php echo $set4_col10;?>	</div>
             <?php } ?>
 								<?php if ($params->get( 'set4_signup_link' ) != ''){?><div style="" class="subtable-cell bottom button4">
-			<a class="readon" href="<?php echo $params->get( 'set4_signup_link' ) ?>"><span>Sign Up Now</span></a> <span class="itemtext">Sign Up to get access now!</span>
+			<a class="readon" href="<?php echo $params->get( 'set4_signup_link' ) ?>"><span>Sign Up Now</span></a> <span class="itemtext">Sign Up to get access!</span>
 		</div> <?php }?>
 			</div>
 </div>

@@ -44,6 +44,7 @@
 				<option value="3">Three Column</option>
 				<option value="4">Four column</option>
 				</field>
+				<field name="rowclass" type="text" default="" label="row_class" description="Class for the module row(If useing the more than one time same module in singla page)" />
 					<field name="currency_enable" type="radio" default="0" label="Enable Currency Conversion" description="Select yes to enable Currency Conversion">
   <option value="0">No</option>
   <option value="1">YES</option>
