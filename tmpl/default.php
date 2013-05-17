@@ -163,7 +163,7 @@ xmlhttp.send();
 </div>
 <?php }else{ echo '<div style="width:100%;height:25px"></div>';}?>
                 <div class="subtable<?php echo $params->get( 'classname' ) ?> col<?php echo $column_num; ?>"><div class="subtable-border">
-<div class="subtable-col <?php echo $row_class; ?> ft-col-first <?php if($highlight1 == 1){ echo "highlight";}else {echo "";}?>" id="subtable-col">
+<div class="subtable-col <?php echo $row_class; ?> ft-col-first <?php if($highlight1 == 1){ echo "sthighlight";}else {echo "";}?>" id="subtable-col">
 	<div class="subtable-col-border">
 				<div class="subtable-head">
 			<div style="" class="head-text">
@@ -219,7 +219,7 @@ xmlhttp.send();
             </div>
 </div>
 <?php if(($column_num==2) || ($column_num == 3) || ($column_num == 4)){?>
-<div class="subtable-col <?php echo $row_class; ?> <?php if($highlight2 == 1){ echo "highlight";}else {echo "";}?> ft-col-even">
+<div class="subtable-col <?php echo $row_class; ?> <?php if($highlight2 == 1){ echo "sthighlight";}else {echo "";}?> ft-col-even">
 	<div class="subtable-col-border">
 				<div class="subtable-head">
 			<div style="" class="head-text">
@@ -276,7 +276,7 @@ xmlhttp.send();
 </div>
 <?php }?>
 <?php if(($column_num==3) || ($column_num == 4)){?>
-<div class="subtable-col <?php echo $row_class; ?> <?php if($highlight3 == 1){ echo "highlight";}else {echo "";}if($column_num == 3){echo "ft-col-last";}?>">
+<div class="subtable-col <?php echo $row_class; ?> <?php if($highlight3 == 1){ echo "sthighlight";}else {echo "";}if($column_num == 3){echo "ft-col-last";}?>">
 	<div class="subtable-col-border">
 					<div class="subtable-head">
 			<div style="" class="head-text">
@@ -333,7 +333,7 @@ xmlhttp.send();
 </div>
 <?php } ?>
 <?php if($column_num == 4){ ?>
-<div class="subtable-col <?php echo $row_class; ?> ft-col-even ft-col-last <?php if($highlight4 == 1){ echo "highlight";}else {echo "";}?>">
+<div class="subtable-col <?php echo $row_class; ?> ft-col-even ft-col-last <?php if($highlight4 == 1){ echo "sthighlight";}else {echo "";}?>">
 	<div class="subtable-col-border">
 						<div class="subtable-head">
 			<div style="" class="head-text">
