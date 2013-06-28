@@ -76,7 +76,7 @@ window.addEvent('domready', function() {
 		var columns = cols[j];
 		
 		columns.each(function(col, i) {
-			if (col.hasClass('highlight')) {current[j] = i; cls = 'highlight'; }
+			if (col.hasClass('sthighlight')) {current[j] = i; cls = 'sthighlight'; }
 			else if (col.hasClass('ft-highlight')) {current[j] = i; cls = 'ft-highlight'; }
 			col.addEvents({
 				'mouseenter': function() { columns.removeClass(cls);this.addClass(cls); },
