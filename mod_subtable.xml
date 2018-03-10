@@ -1,14 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<install type="module"  method="upgrade" version="1.5">
+<extension type="module" version="3.01" method="upgrade">
 	<name>Subtable</name>
-	<creationDate>2012-09-29</creationDate>
+	<creationDate>2018-03-10</creationDate>
 	<author>Shivendra kaushik</author>
-	<authorEmail>shivendra@3stechnosolutions.com</authorEmail>
-	<authorUrl>http://3stechnosolutions.com</authorUrl>
-	<copyright>Copyright (C) 2012  Open Source Matters. All rights reserved.</copyright>	
-	<license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
-	<version>2.01</version>
-	<description>This module is simple to represent your Subscription data in table form</description>
+	<authorEmail>kaushik.shivendra@gmail.com</authorEmail>
+	<authorUrl>https://www.umikatechnologies.com</authorUrl>
+	<copyright>Copyright (C) 2018  Open Source Matters. All rights reserved.</copyright>	
+	<license>GNU/GPL Version 2 or later - http://www.gnu.org/licenses/gpl-2.0.html</license>
+	<version>3.0</version>
+	<description>Subscription Table is a simple module to represent the data in a table format.Basic it supports three currencies (USD, EUR, INR).</description>
+	<updateservers>
+    	<server type="collection">https://updates.umikatechnologies.com/list.xml</server>
+    	<server type="extension" priority="2" name="SabTable Updates">https://updates.umikatechnologies.com/mod_subtable.xml</server>
+ 	</updateservers>
 	<files>
 		<filename module="mod_subtable">mod_subtable.php</filename>
 		<folder>tmpl</folder>
@@ -24,78 +28,68 @@
 	<params>
 		<param name="classname" type="text" default="" label="Class Name" description="Class Name Description" />
 	</params>
-	
 	<config>
 		<fields name="params">
 			<fieldset name="basic">
 				<field name="classname" type="text" default="" label="Class Name" description="Class Name Description" />
-				 <field name="Select_template" type="list"
-				label="Select template"
-				description="Template">
-				<option value="">Select Template</option>
-				<option value="Default">Default</option>
-				<option value="style2">Executive</option>
-				<option value="style3">Executive Clean</option>
+				<field name="Select_template" type="list" label="Select template" description="Template">
+					<option value="">Select Template</option>
+					<option value="Default">Default</option>
+					<option value="style2">Executive</option>
+					<!--<option value="style3">Executive Clean</option>-->
 				</field>
-				<field name="col_num" type="list"
-				label="Select number of column"
-				description="Number of column to be shown">
-				<option value="2">Two Column</option>
-				<option value="3">Three Column</option>
-				<option value="4">Four column</option>
+				<field name="col_num" type="list" label="Select number of column" description="Number of column to be shown">
+					<option value="2">Two Column</option>
+					<option value="3">Three Column</option>
+					<option value="4">Four column</option>dc
 				</field>
 				<field name="rowclass" type="text" default="" label="row_class" description="Class for the module row(If useing the more than one time same module in singla page)" />
-					<field name="currency_enable" type="radio" default="0" label="Enable Currency Conversion" description="Select yes to enable Currency Conversion">
-  <option value="0">No</option>
-  <option value="1">YES</option>
-</field>
-					<field name="currency_type" type="text" default="" label="Add Curreny Conversion Type" description="Add currency type for the currency conversion" />
+				<field name="currency_enable" type="radio" default="0" label="Enable Currency Conversion" description="Select yes to enable Currency Conversion">
+					<option value="0">No</option>
+					<option value="1">YES</option>
+				</field>
+				<field name="currency_type" type="text" default="" label="Add Curreny Conversion Type" description="Add currency type for the currency conversion" />
 			</fieldset>
 			<fieldset name="First" label="First Column option">
 				<field name="Set1_title" type="text" default="" label="Title" description="Title of the first Column" />
 				<field name="Set1_price" type="text" default="" label="price" description="Price" />
-				<field name="Set1_Currency" type="list"
-				label="Currency"
-				description="Currency">
-				<option value="">Select currency</option>
-				<option value="$">$</option>
-				
+				<field name="Set1_Currency" type="list" label="Currency" description="Currency">
+					<option value="">Select currency</option>
+					<option value="$">$</option>
 				</field>
-				 <field name="Select_duration" type="list"
-				label="Select Duration"
-				description="Duration">
-				<option value="">Select Duration</option>
-				<option value="Month">Month</option>
-				<option value="Quaterly">Quarterly</option>
-				<option value="Year">Year</option>
+				<field name="Select_duration" type="list" label="Select Duration" description="Duration">
+					<option value="">Select Duration</option>
+					<option value="Month">Month</option>
+					<option value="Quaterly">Quarterly</option>
+					<option value="Year">Year</option>
 				</field>
 				<field name="hightlight1" type="radio" default="0" label="Select an option" description="Select if you want the column highlighted default">
-  <option value="0">No</option>
-  <option value="1">yes</option>
-</field>
+					  <option value="0">No</option>
+					  <option value="1">yes</option>
+				</field>
 
 				<field name="Set1_id" type="text" filter="raw" default="" label="Column ID" description="Please enter the unique ID or left blank for default" />
-		<field name="Set1_col1" type="textarea" filter="raw" default="" label="col1" description="Please Enter the col1" />
-		<field name="set1_style1" type="text" filter="raw" default="" label="Style col1" description="Customize Style ex. height:25px;width:30px" />
-		<field name="set1_col2" type="textarea"  filter="raw" default="" label="col2" description="Please Enter the col2" />
-		<field name="set1_style2" type="text" filter="raw" default="" label="Style col2" description="Customize Style ex. height:25px;width:30px" />
-		<field name="set1_col3" type="textarea" default="" filter="raw" label="col3" description="Please Enter the col3" />
-		<field name="set1_style3" type="text" filter="raw" default="" label="Style col3" description="Customize Style ex. height:25px;width:30px" />
-		<field name="set1_col4" type="textarea" filter="raw" default="" label="col4" description="Please Enter the col4" />
-		<field name="set1_style4" type="text" filter="raw" default="" label="Style col4" description="Customize Style ex. height:25px;width:30px" />
-		<field name="set1_col5" type="textarea"  filter="raw" default="" label="col5" description="Please Enter the col5" />
-		<field name="set1_style5" type="text" filter="raw" default="" label="Style col5" description="Customize Style ex. height:25px;width:30px" />
-		<field name="set1_col6" type="textarea" filter="raw" default="" label="col6" description="Please Enter the col6" />
-		<field name="set1_style6" type="text" filter="raw" default="" label="Style col6" description="Customize Style ex. height:25px;width:30px" />
-		<field name="set1_col7" type="textarea"  filter="raw" default="" label="col7" description="Please Enter the col7" />
-		<field name="set1_style7" type="text" filter="raw" default="" label="Style col7" description="Customize Style ex. height:25px;width:30px" />
-		<field name="set1_col8" type="textarea" default="" filter="raw" label="col8" description="Please Enter the col8" />
-		<field name="set1_style8" type="text" filter="raw" default="" label="Style col8" description="Customize Style ex. height:25px;width:30px" />
-		<field name="set1_col9" type="textarea" filter="raw" default="" label="col9" description="Please Enter the col9" />
-		<field name="set1_style9" type="text" filter="raw" default="" label="Style col9" description="Customize Style ex. height:25px;width:30px" />
-		<field name="set1_col10" type="textarea"  filter="raw" default="" label="col10" description="Please Enter the col10" />
-		<field name="set1_style10" type="text" filter="raw" default="" label="Style col10" description="Customize Style ex. height:25px;width:30px" />
-		 <field name="set1_signup_link" type="text"  filter="raw" default="" label="Signup Link" description="Please Enter Signup Link or detail Page" />
+				<field name="Set1_col1" type="textarea" filter="raw" default="" label="col1" description="Please Enter the col1" />
+				<field name="set1_style1" type="text" filter="raw" default="" label="Style col1" description="Customize Style ex. height:25px;width:30px" />
+				<field name="set1_col2" type="textarea"  filter="raw" default="" label="col2" description="Please Enter the col2" />
+				<field name="set1_style2" type="text" filter="raw" default="" label="Style col2" description="Customize Style ex. height:25px;width:30px" />
+				<field name="set1_col3" type="textarea" default="" filter="raw" label="col3" description="Please Enter the col3" />
+				<field name="set1_style3" type="text" filter="raw" default="" label="Style col3" description="Customize Style ex. height:25px;width:30px" />
+				<field name="set1_col4" type="textarea" filter="raw" default="" label="col4" description="Please Enter the col4" />
+				<field name="set1_style4" type="text" filter="raw" default="" label="Style col4" description="Customize Style ex. height:25px;width:30px" />
+				<field name="set1_col5" type="textarea"  filter="raw" default="" label="col5" description="Please Enter the col5" />
+				<field name="set1_style5" type="text" filter="raw" default="" label="Style col5" description="Customize Style ex. height:25px;width:30px" />
+				<field name="set1_col6" type="textarea" filter="raw" default="" label="col6" description="Please Enter the col6" />
+				<field name="set1_style6" type="text" filter="raw" default="" label="Style col6" description="Customize Style ex. height:25px;width:30px" />
+				<field name="set1_col7" type="textarea"  filter="raw" default="" label="col7" description="Please Enter the col7" />
+				<field name="set1_style7" type="text" filter="raw" default="" label="Style col7" description="Customize Style ex. height:25px;width:30px" />
+				<field name="set1_col8" type="textarea" default="" filter="raw" label="col8" description="Please Enter the col8" />
+				<field name="set1_style8" type="text" filter="raw" default="" label="Style col8" description="Customize Style ex. height:25px;width:30px" />
+				<field name="set1_col9" type="textarea" filter="raw" default="" label="col9" description="Please Enter the col9" />
+				<field name="set1_style9" type="text" filter="raw" default="" label="Style col9" description="Customize Style ex. height:25px;width:30px" />
+				<field name="set1_col10" type="textarea"  filter="raw" default="" label="col10" description="Please Enter the col10" />
+				<field name="set1_style10" type="text" filter="raw" default="" label="Style col10" description="Customize Style ex. height:25px;width:30px" />
+				 <field name="set1_signup_link" type="text"  filter="raw" default="" label="Signup Link" description="Please Enter Signup Link or detail Page" />
 			</fieldset>
 			<fieldset name="Second" label="Seccond Column option">
 				<field name="Set2_title" type="text" default="" label="Title" description="Title of the first Column" />
@@ -240,6 +234,5 @@
 			</fieldset>
 		</fields>
 
-	</config>	
-
-</install>
+	</config>			
+</extension>

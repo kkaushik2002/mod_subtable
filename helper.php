@@ -1,9 +1,9 @@
 <?php
 /**
- * @version		$Id: helper.php 786 2012-10-05 17:40:09Z kaushik.shivendra@gmail.com
- * @package		Subtable v2.01
- * @author		3stechnosolutions http://www.3stechnosolutions.com
- * @copyright	Copyright (c) 2012 3stechnosolutions Ltd. All rights reserved.
+ * @version		$Id: helper.php 786 2018-5-05 17:40:09 kaushik.shivendra@gmail.com
+ * @package		Subtable v3.01
+ * @author		Umika Technologies https://www.umikatechnologies.com
+ * @copyright	Copyright (c) 2012 Umika Technologies LLP. All rights reserved.
  * @license		GNU/GPL license: http://www.gnu.org/copyleft/gpl.html
  */
 // no direct access
